@@ -1,9 +1,12 @@
 import { demos } from '@/lib/demos';
 import Link from 'next/link';
 
+import { LexRuntimeV2Client } from '@aws-sdk/client-lex-runtime-v2';
+
 export default function Page() {
   return (
     <div className="space-y-6">
+      <div className="text-white">LexV2Client: {JSON.stringify(new LexRuntimeV2Client({}))}</div>
       <div className="space-y-8 text-white">
         {demos
           .filter((section) =>
