@@ -2,13 +2,21 @@
 
 import { demos } from '@/lib/demos';
 import Link from 'next/link';
-
-import { LOAD_FROM } from "some-package"
+import { useEffect, useState } from 'react';
 
 export default function Page() {
+  const [ loadFrom, setLoadFrom ] = useState("");
+  useEffect(() => {
+    (async () => {
+      const { LOAD_FROM } = await import("some-package");
+      setLoadFrom(LOAD_FROM);
+    })();
+    return () => {}
+  })
+
   return (
     <div className="space-y-6">
-      <div className="text-white">Turbopack load from: {LOAD_FROM}</div>
+      <div className="text-white">Turbopack load from: {loadFrom}</div>
       <div className="space-y-8 text-white">
         {demos
           .filter((section) =>
