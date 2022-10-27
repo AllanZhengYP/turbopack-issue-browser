@@ -17,6 +17,8 @@
     "singleQuote": true
   },
   "dependencies": {
+    "@aws-sdk/client-lex-runtime-v2": "3.198.0",
+    "aws-crt": "1.14.5",
     "clsx": "1.2.1",
     "concurrently": "7.5.0",
     "next": "latest",
