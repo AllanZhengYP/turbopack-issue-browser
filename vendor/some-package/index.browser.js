@@ -1,0 +1,1 @@
+export const LOAD_FROM = "browser entry point";

@@ -1,14 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "tailwind": "tailwindcss -i styles/globals.css -o styles/dist.css",
     "format": "prettier --write \"**/*.{js,ts,tsx,md}\"",
-    "postinstall": "npm run tailwind"
+    "postinstall": "cp -rf vendor/some-package node_modules && yarn run tailwind"
   },
+  "packageManager": "yarn@1.22.15",
   "prettier": {
     "arrowParens": "always",
     "semi": true,
@@ -16,7 +17,6 @@
     "singleQuote": true
   },
   "dependencies": {
-    "@aws-sdk/client-lex-runtime-v2": "3.197.0",
     "clsx": "1.2.1",
     "concurrently": "7.5.0",
     "next": "latest",
