@@ -3,14 +3,13 @@
 import { demos } from '@/lib/demos';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-// import { LexRuntimeV2Client } from "@aws-sdk/client-lex-runtime-v2/dist-es/index.browser";
 
 export default function Page() {
   const [ loadFrom, setLoadFrom ] = useState("");
   useEffect(() => {
     (async () => {
-      const { LexRuntimeV2Client } = await import("@aws-sdk/client-lex-runtime-v2");
-      setLoadFrom(JSON.stringify(new LexRuntimeV2Client({})));
+      const { S3Client } = await import("@aws-sdk/client-s3");
+      setLoadFrom(JSON.stringify(new S3Client({})));
     })();
     return () => {}
   })
